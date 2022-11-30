@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ManagerMapper">
+
+    <insert id="addManager" parameterType="com.example.demo.pojo.Manager">
+        insert into manager_table (mid, musername, mpassword, memail)
+        values (#{mid}, #{musername}, #{mpassword}, #{memail})
+    </insert>
+    <select id="selectManager" resultType="java.lang.Integer" parameterType="string">
+        select musername and mpassword from manager_table where mpassword = #{mpassword} and musername = #{musername}
+    </select>
+</mapper>
+
+
+
+
+
+
+
