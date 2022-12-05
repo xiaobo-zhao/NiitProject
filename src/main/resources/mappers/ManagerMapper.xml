@@ -9,9 +9,38 @@
         insert into manager_table (mid, musername, mpassword, memail)
         values (#{mid}, #{musername}, #{mpassword}, #{memail})
     </insert>
+    <update id="updateManagerInf" parameterType="com.example.demo.pojo.Manager">
+        update manager_table
+        set mid = #{mid},
+            musername = #{musername},
+            mpassword = #{mpassword},
+            memail=#{memail}
+    </update>
+    <delete id="deleteManagerInf" parameterType="string">
+        delete
+        from manager_table
+        where mid = #{mid}
+    </delete>
     <select id="selectManager" resultType="java.lang.Integer" parameterType="string">
-        select musername and mpassword from manager_table where mpassword = #{mpassword} and musername = #{musername}
+        select musername and mpassword
+        from manager_table
+        where mpassword = #{mpassword}
+          and musername = #{musername}
     </select>
+    <select id="selectManagerNum" resultType="java.lang.Integer">
+        select count(*)
+        from manager_table
+    </select>
+    <select id="selectManagerInf" resultType="com.example.demo.pojo.Manager">
+        select *
+        from manager_table
+    </select>
+    <select id="selectManagerById" resultType="com.example.demo.pojo.Manager">
+        select *
+        from manager_table
+        where mid = #{mid}
+    </select>
+
 </mapper>
 
 

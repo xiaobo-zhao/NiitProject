@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
-    public UserMapper userMapper;
+    private UserMapper userMapper;
 
     public User SelectByName(String uusername){
         return userMapper.getUserByName(uusername);
@@ -28,5 +28,9 @@ public class UserService {
 
     public int updatePwd(String uusername,String newpass){
         return  userMapper.updateUser(uusername,newpass);
+    }
+
+    public int getUserNum(){
+        return userMapper.selectUserNum();
     }
 }

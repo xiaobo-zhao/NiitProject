@@ -27,4 +27,10 @@ public interface GoodsMapper {
     @Insert("INSERT INTO entity(userId,ename,ephone,price,image,type,description,isrelease,seller) VALUES(#{userId},#{ename},#{ephone},#{price},#{image},#{type},#{description},#{isrelease},#{seller})")
     // keyProperty java对象的属性；keyColumn表示数据库的字段
     public int addGoods(Goods goods);
+    /**
+     * @description:查询货物的数量
+     * @author: Insist On
+     * @date: 2022/11/30 19:28
+     **/
+    public int selectGoodNum();
 }

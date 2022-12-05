@@ -30,5 +30,7 @@ public class GoodsService {
     public int insert(Goods goods){
         return goodsMapper.addGoods(goods);
     }
-
+    public int getGoodNum(){
+        return goodsMapper.selectGoodNum();
+    }
 }

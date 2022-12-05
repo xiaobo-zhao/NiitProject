@@ -23,5 +23,4 @@ public class WebSocketController {
     public void sendCommunication(@RequestBody Info info) throws IOException {
         webSocketService.sendInfo(info.getMessage());
     }
-
 }
