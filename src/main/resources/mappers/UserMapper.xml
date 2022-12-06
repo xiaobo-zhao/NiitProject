@@ -3,13 +3,32 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
+    <update id="updateUserInf" parameterType="com.example.demo.pojo.User">
+        update user_table
+        set  uusername = #{uusername},
+            upassword = #{upassword},
+            uphone= #{uphone} where uid= #{uid}
+    </update>
+    <delete id="deleteUserInfById" parameterType="integer">
+        delete
+        from user_table
+        where uid = #{uid}
+    </delete>
     <select id="selectUserList" resultType="com.example.demo.pojo.User">
-        select * from user_table;
+        select *
+        from user_table;
     </select>
     <select id="getUserByName" parameterType="String" resultType="com.example.demo.pojo.User">
-        select * from user_table where uusername=#{uusername}
+        select *
+        from user_table
+        where uusername = #{uusername}
     </select>
     <select id="selectUserNum" resultType="java.lang.Integer">
-        select count(*) from user_table
+        select count(*)
+        from user_table
+    </select>
+    <select id="SelectAllUserInf" resultType="com.example.demo.pojo.User">
+        select *
+        from user_table
     </select>
 </mapper>

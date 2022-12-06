@@ -3,11 +3,14 @@ package com.example.demo.mapper;
 import com.example.demo.pojo.User;
 import com.example.demo.pojo.UserInfo;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Mapper
+@Repository
 public interface UserInfoMapper {
     /**
      * 查询所有信息

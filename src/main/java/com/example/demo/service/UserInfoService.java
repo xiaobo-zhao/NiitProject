@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class UserInfoService {
     @Autowired
-    public UserInfoMapper userInfoMapper;
+    private UserInfoMapper userInfoMapper;
 
     public List<UserInfo> selectAll(){
         return userInfoMapper.selectUserInfoList();
@@ -26,4 +26,5 @@ public class UserInfoService {
     }
 
     public int InsertUser(int uid){return userInfoMapper.insertUserInfo(uid);}
+
 }
