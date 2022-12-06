@@ -21,10 +21,10 @@ public class GoodsService {
     public List<Goods> display(){
         return goodsMapper.selectAll();
     }
-    public void passGoods(String eid){
+    public void passGoods(int eid){
         goodsMapper.passGoods(eid);
     }
-    public void unpassGoods(String eid){
+    public void unpassGoods(int eid){
         goodsMapper.unpassGoods(eid);
     }
     public int insert(Goods goods){

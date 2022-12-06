@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @Component
 public class Goods {
-    private String eid;
+    private int eid;
     private String price;
     private String description;
     private String ename;

@@ -16,10 +16,10 @@ public interface GoodsMapper {
     public List<Goods> selectAll();
 
     //    审核货物通过
-    public void passGoods(@Param("eid") String eid);
+    public void passGoods(@Param("eid") int eid);
 
     //    审核货物不通过
-    public void unpassGoods(@Param("eid") String eid);
+    public void unpassGoods(@Param("eid") int eid);
 
     /**
      * 插入新商品
