@@ -22,27 +22,19 @@ import static com.example.demo.result.Error.ERROR_1;
 public class UserLoginController {
     @Autowired
     private UserService userService;
-
+    //用户登陆
     @CrossOrigin
     @PostMapping(value = "/login")
     public Result login(@RequestBody User requestUser, HttpSession session, HttpServletResponse response) {
         String uusername = requestUser.getUusername();
         String upassword = requestUser.getUpassword();
         User existUser = userService.SelectByName(uusername);
-        System.out.println(existUser);
-        System.out.println(upassword);
-        System.out.println(existUser.getUpassword().equals(upassword));
-//        if(uusername.isEmpty() || upassword.isEmpty()) {
-//            return Result.error("");
-//        }
+
+        //用户名是否错误或为空
         if(existUser==null){
             return  Result.error("用户名或密码错误");
         }
-//        if (!existUser.getUpassword().equals((DigestUtils.md5DigestAsHex(upassword.getBytes())))) {
-//            result.setMessage("密码错误,请重新输入");
-//            result.setCode(400);
-//            return result;
-//        }
+        //密码是否错误或为空
         if (!upassword.equals(existUser.getUpassword())) {
             return Result.error("用户名或密码错误");
         }

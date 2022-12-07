@@ -19,27 +19,6 @@ public class UserInfoController {
     UserInfoService userInfoService;
 
     @CrossOrigin
-    @PostMapping("/userinfo/wantlist")
-    public Result showUserWant() {
-        List<User> users = userService.selectAll();
-        return Result.success(users);
-    }
-
-//    @CrossOrigin
-//    @RequestMapping("/users/userinfo")
-//    public Result ShowUserInfo(){
-//        List<UserInfo> userInfoList=userInfoService.selectAll();
-//        return Result.success(userInfoList);
-//    }
-//
-//    @CrossOrigin
-//    @RequestMapping("/userinfo/message")
-//    public Result ShowUserInfo() {
-//        List<UserInfo> userInfoList = userInfoService.selectAll();
-//        return Result.success(userInfoList);
-//    }
-
-    @CrossOrigin
     @PostMapping("/userinfo/updateuserinfo")
     public Result updateUserInfo(@RequestBody UserInfo userInfo){
         userInfoService.UpdateUser(userInfo);
@@ -48,9 +27,18 @@ public class UserInfoController {
         return Result.success(userInfo);
     }
 
+//
+//    @CrossOrigin
+//    @PostMapping("/userinfo/wantlist")
+//    public Result showUserWant() {
+//        List<User> users = userService.selectAll();
+//        return Result.success(users);
+//    }
+
 
     @CrossOrigin
     @PostMapping("/userinfo/one")
+    //展示当前登陆用户信息
     public Result ShowOneInfo(@RequestBody UserInfo userInfo){
         UserInfo userinfo =userInfoService.selectOne(userInfo.getUid());
         return Result.success(userinfo);

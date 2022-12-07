@@ -13,26 +13,53 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
+    /**
+     * @description:根据用户姓名查询信息
+     * @author: Insist On
+     * @date: 2022/12/6 14:43
+     **/
     public User SelectByName(String uusername) {
         return userMapper.getUserByName(uusername);
     }
-
+    /**
+     * @description:查询所有的用户信息
+     * @author: Insist On
+     * @date: 2022/12/6 14:43
+     **/
     public List<User> selectAll() {
         return userMapper.selectUserList();
     }
-
+    /**
+     * @description:插入用户信息
+     * @author: Insist On
+     * @date: 2022/12/6 14:39
+     **/
     public int insert(User user) {
         return userMapper.addUser(user);
     }
-
+    /**
+     * @description:查询所有用户名
+     * @author: Insist On
+     * @date: 2022/12/6 14:40
+     **/
     public List<String> getAllUsername() {
         return userMapper.selectAllName();
     }
 
+    /**
+     * @description:更新用户密码
+     * @author: Insist On
+     * @date: 2022/12/6 14:41
+     **/
     public int updatePwd(String uusername, String newpass) {
         return userMapper.updateUser(uusername, newpass);
     }
 
+    /**
+     * @description:查询所有的用户数量
+     * @author: Insist On
+     * @date: 2022/12/6 14:41
+     **/
     public int getUserNum() {
         return userMapper.selectUserNum();
     }

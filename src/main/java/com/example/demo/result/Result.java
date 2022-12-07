@@ -54,18 +54,18 @@ public class Result <T> {
     }
 
 
-
+    //构造方法
     private Result(T data) {
         this.code = 200;
         this.msg = "success";
         this.data = data;
     }
-
+    //构造方法
     private Result() {
         this.code = 200;
         this.msg = "success";
     }
-
+    //构造方法
     private Result(String msg) {
         this.code = 400;
         this.msg = msg;

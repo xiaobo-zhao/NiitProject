@@ -22,20 +22,22 @@ import java.util.List;
 public class GoodsController {
     @Autowired
     private GoodsService goodsService;
-
+    //展示所有商品
     @RequestMapping("/display")
     public List<Goods> displayAll() {
         return goodsService.display();
     }
+    //通过审核商品
     @RequestMapping("/passGoods")
     public void passGoods(@RequestBody Goods goods){
         goodsService.passGoods(goods.getEid());
     }
+    //未通过审核商品
     @RequestMapping("/unpassGoods")
     public void unpassGoods(@RequestBody Goods goods){
         goodsService.unpassGoods(goods.getEid());
     }
-
+    //添加商品
     @CrossOrigin
     @PostMapping("/commodity")
     public Result sendAdmin(@RequestBody Goods goods){
@@ -44,18 +46,26 @@ public class GoodsController {
         goodsService.insert(goods);
         return Result.success();
     }
+    //展示所有商品
     @CrossOrigin
     @RequestMapping("/commodity/all")
     public Result showGoods(){
-        String resoureceUrl="http://127.0.0.1:5000/commodity/file/";
+//      String resoureceUrl="http://127.0.0.1:8080/commodity/file/";
         List<Goods> goodsList=goodsService.display();
         return Result.success(goodsList);
     }
 
+    //删除商品
     @CrossOrigin
-    @RequestMapping("/wantlist")
-    public Result showWant(){
-        List<Goods> entities=goodsService.display();
-        return Result.success(entities);
+    @PostMapping("/commodity/delete")
+    public Result deletePublish(@RequestBody Goods goods) {
+        int deleteresult = goodsService.delete(goods.getEid());
+        if (deleteresult > 0) {
+            return Result.success();
+        } else {
+            return Result.error("删除失败");
+        }
     }
+
+
 }

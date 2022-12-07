@@ -13,18 +13,19 @@ import java.util.List;
 public class UserInfoService {
     @Autowired
     private UserInfoMapper userInfoMapper;
-
+    //查询所有用户信息
     public List<UserInfo> selectAll(){
         return userInfoMapper.selectUserInfoList();
     }
+    //根据用户id查询用户信息
     public UserInfo selectOne(Integer uid){
         return userInfoMapper.selectOne(uid);
     }
-
+    //根据相关数据更新用户信息
     public int UpdateUser(UserInfo userInfo){
         return userInfoMapper.updateUserInfO(userInfo);
     }
-
+    //插入新的用户信息
     public int InsertUser(int uid){return userInfoMapper.insertUserInfo(uid);}
 
 }

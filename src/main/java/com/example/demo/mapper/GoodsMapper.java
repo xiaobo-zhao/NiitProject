@@ -2,6 +2,7 @@ package com.example.demo.mapper;
 
 
 import com.example.demo.pojo.Goods;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -33,4 +34,10 @@ public interface GoodsMapper {
      * @date: 2022/11/30 19:28
      **/
     public int selectGoodNum();
+
+    /**
+     * 删除商品信息
+     */
+    @Delete("delete from entity where eid = #{eid}")
+    public int deleteGoods(int eid);
 }

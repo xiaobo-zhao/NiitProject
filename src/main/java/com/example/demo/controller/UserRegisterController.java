@@ -24,18 +24,25 @@ public class UserRegisterController {
     private UserService userService;
     @Autowired
     private UserInfoService userInfoService;
+    //用户注册
     @CrossOrigin
     @PostMapping(value = "/register")
     public Result register(@RequestBody User user) {
         List<String> usernames = userService.getAllUsername();
+        //用户名是否已经被注册
         if (usernames.contains(user.getUusername())) {
             System.out.println("sorry");
             return Result.error("用户名已注册");
         } else {
-            userService.insert(user);
+            int insertresult=userService.insert(user);
+            if(insertresult>0){
             User user1 =userService.SelectByName(user.getUusername());
             userInfoService.InsertUser(user1.getUid());
             return Result.success();
+            }else{
+                return Result.error("注册失败");
+            }
+
         }
     }
 }

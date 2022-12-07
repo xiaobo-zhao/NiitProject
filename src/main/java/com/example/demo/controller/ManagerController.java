@@ -26,13 +26,13 @@ public class ManagerController {
     private GoodsService goodsService;
     @Autowired
     private UserService userService;
-
+    //注册逻辑
     @RequestMapping(value = "/register")
     public String managerRegister(@RequestBody Manager manager) {
         managerService.addManager(manager);
         return "注册成功";
     }
-
+    //登陆逻辑
     @RequestMapping(value = "/login")
     public String managerLogin(@RequestBody Manager manager) {
         Integer count = managerService.selectManager(manager.getMusername(), manager.getMpassword());
@@ -42,7 +42,7 @@ public class ManagerController {
             return JSON.toJSONString("登录成功");
         }
     }
-
+    //查询数量
     @RequestMapping(value = "/num")
     public List getNumInformation() {
         int goods = goodsService.getGoodNum();
@@ -54,7 +54,7 @@ public class ManagerController {
         list.add(manager);
         return list;
     }
-
+    //获得所有信息
     @RequestMapping(value = "/allInformation")
     public List<Manager> getAllManagerInf() {
         return managerService.getAllManager();

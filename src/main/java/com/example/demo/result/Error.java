@@ -3,7 +3,7 @@ package com.example.demo.result;
 public class Error {
     private int code;		// 状态码
     private String msg;		// 返回的信息
-
+    //构造方法
     private Error(int code, String msg) {
         this.code = code;
         this.msg = msg;
