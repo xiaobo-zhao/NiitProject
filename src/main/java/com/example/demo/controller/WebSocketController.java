@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 
 import com.example.demo.pojo.Info;
-import com.example.demo.websocket.WebSocketService;
+//import com.example.demo.websocket.WebSocketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +17,10 @@ import java.io.IOException;
 @RestController
 @CrossOrigin
 public class WebSocketController {
-    @Autowired
+    /*@Autowired
     private WebSocketService webSocketService;
     @RequestMapping("/res")
     public void sendCommunication(@RequestBody Info info) throws IOException {
         webSocketService.sendInfo(info.getMessage());
-    }
+    }*/
 }

@@ -1,4 +1,5 @@
 package com.example.demo.websocket;
+
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -57,8 +58,10 @@ public class WebSocketService {
      * @param session
      */
     @OnMessage
-    public void onMessage(String message, Session session) {
+    public void onMessage(String message, Session session) throws IOException {
         System.out.println("客户端发送的消息：" + message);
+        System.out.println(session.getId());
+        sendAll(message);
     }
 
     /**
@@ -67,9 +70,13 @@ public class WebSocketService {
      * @param message
      * @throws IOException
      */
-    public  void sendInfo(String message) throws IOException {
+    public void sendInfo(String message) throws IOException {
         sendAll(message);
     }
+
+
+
+
 
     /**
      * 群发
@@ -131,7 +138,7 @@ public class WebSocketService {
      */
     public void sendMessage(String message) throws IOException {
         //获取session远程基本连接发送文本消息
-        this.session.getBasicRemote().sendText(message);
-        //this.session.getAsyncRemote().sendText(message);
+//        this.session.getBasicRemote().sendText(message);
+        this.session.getAsyncRemote().sendText(message);
     }
 }
