@@ -42,6 +42,7 @@ public class GoodsController {
     @PostMapping("/commodity")
     public Result sendAdmin(@RequestBody Goods goods){
         goods.setImage(Ba64Utils.GenerateImagebendi(goods.getImage()));
+        System.out.println(Ba64Utils.GenerateImagebendi(goods.getImage()));
         goods.setIsrelease("审核通过");
         goodsService.insert(goods);
         return Result.success();

@@ -25,7 +25,7 @@ public interface GoodsMapper {
     /**
      * 插入新商品
      */
-    @Insert("INSERT INTO entity(userId,ename,ephone,price,image,type,description,isrelease,seller) VALUES(#{userId},#{ename},#{ephone},#{price},#{image},#{type},#{description},#{isrelease},#{seller})")
+    @Insert("INSERT INTO entity(ename,ephone,price,image,type,description,isrelease,seller) VALUES(#{ename},#{ephone},#{price},#{image},#{type},#{description},#{isrelease},#{seller})")
     // keyProperty java对象的属性；keyColumn表示数据库的字段
     public int addGoods(Goods goods);
     /**
