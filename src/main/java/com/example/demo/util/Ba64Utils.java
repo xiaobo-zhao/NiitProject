@@ -24,13 +24,15 @@ public class Ba64Utils {
             }
             //图片保存名称1
             String newfilename = System.currentTimeMillis() + UUID.randomUUID().toString().replace(".", "").substring(0, 6) + ".jpg";
-//            String fileLocation = "/static/restaurantRes/";
+            //            String fileLocation = "/static/restaurantRes/";
             //文件访问位置
-            String filePath = "/home/picture/"
+            String filePath = "http://42.193.107.153:8080/file/"
 //                    + fileLocation
                     + newfilename;
             //文件存储位置
-            String imgFilePath = "/home/picture/" + System.currentTimeMillis() + UUID.randomUUID().toString().replace(".", "").substring(0, 6) + ".jpg";//新生成的图片
+//            String imgFilePath = "D:/images/" + System.currentTimeMillis() + UUID.randomUUID().toString().replace(".", "").substring(0, 6) + ".jpg";//新生成的图片
+            String imgFilePath = "home/picture" +newfilename;
+
             //文件写入
             OutputStream out = new FileOutputStream(imgFilePath);
             out.write(b);
